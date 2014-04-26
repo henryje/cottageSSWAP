@@ -1,0 +1,62 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sswap: <http://sswapmeet.sswap.info/sswap/> .
+@prefix d: <http://localhost:8080/reservationService/onto/Reservation/> . 
+@prefix resource: <http://localhost:8080/Reservation/getAvaliableCottageService/> .
+
+resource:getAvaliableCottageService
+   rdf:type sswap:Resource;
+
+sswap:providedBy resource:resourceProvider ;
+
+sswap:name "cottage lookup service" ;
+
+sswap:oneLineDescription "A service that  required cottage information and returns  a set of bookings for the inquired booking" ;
+
+sswap:operatesOn [
+
+rdf:type sswap:Graph ; sswap:hasMapping [
+
+                rdf:type sswap:Subject
+				         d:CottageOfInterest;
+
+               d:bookerFirstName "" ;
+			   d:cityOfInterest "" ;
+               d:distanceToCityOfInterest "" ;
+			   d:maximumShift "";
+			   d:requiredAmountOfDays "" ;
+               d:requiredBedrooms "" ;
+			   d:requiredDistanceToLake "" ;
+			   d:requiredOccupacy "";
+               d:startingBookingDay" ";
+
+               sswap:mapsTo[
+
+                        rdf:type sswap:Object,
+								 d:BookingResult;
+								    d:hasReservation [
+									 	rdf:type d:Reservation;
+										d:bookerFirstName "" ;
+										d:bookingNumber " " ;
+										d:reservationStartDate "2014-07-02";
+										d:reservationEndDate "2014-07-12"; 
+										d:hasCottage [
+											rdf:type d:Cottage ;
+											d:cottageAddress "" ;
+											d:cottageCity "Jyväskylä" ;
+											d:cottageDistanceToNearCity "" ;
+											d:cottageDistanceToNearLake "" ;
+											d:cottageImage "http://localhost:8080/reservationService/images/1.gif" ;
+											d:cotttageName "" ;
+											d:cottageOccupancy "";
+											d:cottageOccupancyBedrooms "";					
+											d:cottageAvalaibleEndDate "2014-05-01" ;
+											d:cottageAvalaibleStartDate "2014-09-01" ;
+										].
+									].
+
+		]  .
+
+	].
+
+].
