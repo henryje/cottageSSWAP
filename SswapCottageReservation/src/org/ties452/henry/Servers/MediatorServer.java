@@ -96,7 +96,7 @@ public class MediatorServer extends HttpServlet {
 	public MediatorServer() {
 		super();
 		// TODO Auto-generated constructor stub
-		startRunning();
+		//startRunning();
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class MediatorServer extends HttpServlet {
 		
 		
 		//
-		
+		startRunning();
 		//ParseRDG();
 		//SendToBrowser();
 		//createRIG();
@@ -191,7 +191,7 @@ public void WhileCommunicating(){
 	public void getRDG(){
 		
 		URL File_Path = this.getClass().getResource(
-				"/org/tie452/henry/RDGFiles/random.txt");
+				"/org/tie452/henry/RIGFiles/modified.txt");
 		byte[] mybytearray = new byte[FILE_SIZE];
 		InputStream is = null;
 		try {
